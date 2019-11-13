@@ -234,3 +234,31 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+}
+
+header {
+  background-image: url(//assets/mel-poole-dsTVwp376kc-unsplash.jpg);
+  height: 100vh;
+  background-size: cover;
+}
+
+.wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 960px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+* {
+  border: 1px red solid;
+}
+
+header {
+  background: lightgreen;
+  height: 100vh;
+  font-family: p;
+}
