@@ -9,12 +9,12 @@
   }
 
 
-*{
-    border: 1px red solid;
-}
-
-header{
-    background:lightgreen;
-    height:100vh;
-    font-family: p
+.flexMe{
+    display: flex; 
+    justify-content: space-between; 
+    padding-top:50px;
+} 
+.flexMe img{
+    width:150px; 
+    height:150px;
 }

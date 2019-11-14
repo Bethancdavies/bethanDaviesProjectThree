@@ -1,5 +1,43 @@
 // font-family: 'Dancing Script', cursive; 
+html{
+    font-size: 62.5%;
+}
+
+
+h1,h2{
+    font-family:'Dancing Script', cursive;
+    padding: 0;
+    margin: 0;
+} 
 
 h1{
-    font-family:'Dancing Script', cursive;
+    font-size: 9rem;
 }
+
+h2{
+    font-size:5rem;
+} 
+
+li{ 
+    font-size:2.5rem;
+}  
+
+button{
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ed3330;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    }
+
+button:hover{    background:lightgreen;
+letter-spacing: 1px;
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
+} 
+
+// styling for buttons from https://www.fabriziovanmarciano.com/button-styles/ tweaked by permission of author
