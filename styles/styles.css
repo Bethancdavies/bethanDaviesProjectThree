@@ -239,7 +239,7 @@ html {
   font-size: 62.5%;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: 'Dancing Script', cursive;
   padding: 0;
   margin: 0;
@@ -251,6 +251,10 @@ h1 {
 
 h2 {
   font-size: 5rem;
+}
+
+h3 {
+  font-size: 3rem;
 }
 
 li {
@@ -305,4 +309,13 @@ header {
 .flexMe img {
   width: 150px;
   height: 150px;
+}
+
+.santaFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }

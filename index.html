@@ -38,7 +38,7 @@
                 <ul class="namesEntered">
                     <!-- this is where the names inputted will go -->
                 </ul>
-                <button id="randomize">Submit Form</button> 
+                <button id="randomize">Submit Form</button>
                 <!-- give class or ID -->
             </div>
         </div>
@@ -48,11 +48,21 @@
     </section>
     <!-- second button to submit to scramble the names and assign a partner -->
     <section class="wrapper">
-        <div class="namesRandomized">
-            <h2> Secret Santa Results.....</h2>
-            <ul>
-                <!-- this is where names that have been scrambled will go -->
-            </ul>
+        <h2> Secret Santa Results.....</h2>
+        <div class="santaFlex">
+            <div class="secretSantaGiver">
+                <h3> secret santa giver</h3>
+                <ul class="namesEnteredList">
+                    <!-- this is where the names inputted array will go, used with the namesrandomized list it will be the legend as to who has who -->
+                </ul>
+            </div>
+
+            <div class="secretSantaGetter">
+                <h3>secret santa getter</h3>
+                <ul class="namesRandomized">
+                    <!-- this is where names that have been scrambled will go -->
+                </ul>
+            </div>
         </div>
     </section>
     <footer>
@@ -63,15 +73,13 @@
     <script src='https://code.jquery.com/jquery-3.4.0.min.js'
         integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
 
-    <script> 
-
-const santaApp = {}
-santaApp.inputtedNameArray = []; 
-santaApp.inputtedNameArrayS = []; 
-santaApp.randomNames = [];
-santaApp.init = function (){
-// get the names from user and display below 
-// save names to an array, one ".inputtedNameArray" and another ".inuttedNameArrayS, one will stay the same., the other will shuffle providing a name that is not the same name as array one which will indicate who you are buying a gift for"
+    <script>
+        // set up variables, arrays and name object 
+        const santaApp = {}
+        santaApp.inputtedNameArray = [];
+        santaApp.inputtedNameArrayS = [];
+        // santaApp.randomNames = []; dunno if need this?
+        santaApp.init = function () {
             $('.inputtedNames').on('submit', function (event) {
                 event.preventDefault();
                 const inputtedName = $('input').val();
@@ -80,25 +88,37 @@ santaApp.init = function (){
                     $('input').val('');
                 }
                 santaApp.inputtedNameArray.push(inputtedName)
-                santaApp.inputtedNameArrayS.push(inputtedName) 
-            })
-            // this function is for the submit/scamble OUTPUT
-            $('#randomize').on('click',function(){ 
-                $('.namesRandomized').append(`<li>${santaApp.inputtedNameArray}</li>`);
-                   
-            //  how do you get each item in the array ? 
-            // randomize the output then print just the regular in order list
-            } )
+            }) 
+            $('#randomize').on('click', function () {
+                santaApp.inputtedNameArray.forEach((name) => {
+                    $(".namesEnteredList").append(`<li>${name}</li>`);
+                }); 
+            
+            })   
 
-};
-    // call init function
-    // set up needed variables
-        $(document).ready(function () {
-santaApp.init()
           
-        
-        });
-        
+// then have shuffled here :) 
+    
+           
+     $('#randomize').on('click', function () { 
+                santaApp.inputtedNameArrayS.forEach((name) => {
+                    $(".namesRandomized").append(`<li>${name}</li>`);
+                    // this will submit the names given as li's below
+                });  
+            })   
+
+
+        }; 
+// ^this above bracket is for the entire init function 
+
+        // keep everything above this point :)
+        // call init function
+        $(document).ready(function () {
+            santaApp.init()
+
+
+        });  
+        // these brackets end initfunction
     </script>
 </body>
 
