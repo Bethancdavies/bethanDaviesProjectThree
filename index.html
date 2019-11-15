@@ -7,20 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/styles.css">
     <link href="./assets/favicon.ico" rel="icon" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Santa's Little Helper</title>
 </head>
 
 <body>
     <header>
-        <div class="wrapper"> 
-        <Div class="flexMe">  
-            <h1>
-                Santa's Little Helper
-            </h1> 
-             <img src="./assets/tux-161475_640.png" alt="penguin">
-         </div>
+        <div class="wrapper">
+            <Div class="flexMe">
+                <h1>
+                    Santa's Little Helper
+                </h1>
+                <img src="./assets/tux-161475_640.png" alt="penguin">
+            </div>
             <p>
                 Enter every name of member participating Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam
                 minima quos expedita autem, voluptatibus repudiandae cupiditate error beatae saepe dignissimos adipisci
@@ -28,73 +28,78 @@
             </p>
 
             <!-- first button to hit to submit each individual name -->
-            <form action="submit" class = "inputtedNames">
+            <form action="submit" class="inputtedNames">
                 <input type="text" required="true">
-                <button type="submit">Submit Individual Name</button>        
-           </form> 
-        
-        <div>
-            <h2> Names you have entered</h2>
-            <ul class="namesEntered">
-                <!-- this is where the names inputted will go -->
-            </ul> 
-            <button type="submit">Submit Form</button>
+                <button type="submit">Submit Individual Name</button>
+            </form>
+
+            <div>
+                <h2> Names you have entered</h2>
+                <ul class="namesEntered">
+                    <!-- this is where the names inputted will go -->
+                </ul>
+                <button id="randomize">Submit Form</button> 
+                <!-- give class or ID -->
+            </div>
         </div>
-    </div>
     </header>
     <section class="wrapper">
-        
+
     </section>
     <!-- second button to submit to scramble the names and assign a partner -->
     <section class="wrapper">
-        <div> 
+        <div class="namesRandomized">
             <h2> Secret Santa Results.....</h2>
             <ul>
                 <!-- this is where names that have been scrambled will go -->
             </ul>
         </div>
     </section>
-<footer> 
-    made by Bethan Davies
-</footer>
+    <footer>
+        made by Bethan Davies
+    </footer>
 
 
-<script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script> 
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js'
+        integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
 
-<script>
-$(document).ready(function() {
+    <script> 
 
-// get the info from the names inputted and save into an array 
-// this prevents the default of the form from clearing the information
-  $('.inputtedNames').on('submit', function(event){
-        event.preventDefault(); 
-// saves the input value as a variable called name
-        const name = $('input').val(); 
-        if (name !== ''){
-          $('.namesEntered').append(`<li>${name}</li>`); 
-          // inputs the name into the ul as an li
-          $('input').val('') 
-          // this clears the entry box word from the last submit, setting the value to a blank string clears it
-        }
-    // need to save all the variables in an array  
-// this will save into an array :) format a/p array name wanted
-//     var agencies = [];
-// $(".agency_field").each(function(index) { agencies.push($(this).val()) });
-      })  
+const santaApp = {}
+santaApp.inputtedNameArray = []; 
+santaApp.inputtedNameArrayS = []; 
+santaApp.randomNames = [];
+santaApp.init = function (){
+// get the names from user and display below 
+// save names to an array, one ".inputtedNameArray" and another ".inuttedNameArrayS, one will stay the same., the other will shuffle providing a name that is not the same name as array one which will indicate who you are buying a gift for"
+            $('.inputtedNames').on('submit', function (event) {
+                event.preventDefault();
+                const inputtedName = $('input').val();
+                if (inputtedName !== '') {
+                    $('.namesEntered').append(`<li>${inputtedName}</li>`);
+                    $('input').val('');
+                }
+                santaApp.inputtedNameArray.push(inputtedName)
+                santaApp.inputtedNameArrayS.push(inputtedName) 
+            })
+            // this function is for the submit/scamble OUTPUT
+            $('#randomize').on('click',function(){ 
+                $('.namesRandomized').append(`<li>${santaApp.inputtedNameArray}</li>`);
+                   
+            //  how do you get each item in the array ? 
+            // randomize the output then print just the regular in order list
+            } )
+
+};
+    // call init function
+    // set up needed variables
+        $(document).ready(function () {
+santaApp.init()
+          
         
-
-
-
-
-
-
-
-
-
-});
-// java will go in here
-
-</script> 
+        });
+        
+    </script>
 </body>
 
 </html>
