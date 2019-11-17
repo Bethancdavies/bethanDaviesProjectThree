@@ -22,7 +22,12 @@
 .santaFlex{
     display: flex; 
     justify-content: center;
-} 
+}  
+.flexTop{
+    display: flex; 
+    flex-direction:column; 
+    
+}
 
 .secretSantaGetter{
     border-left: $redpink 4px solid;
@@ -36,7 +41,8 @@
 
 .secretSanta{
     background: $turquoise; 
+    height:100vh;
     h2{
-        padding: 30px 0;
+        padding: 80px 0px 30px 0px;
     }
 }
