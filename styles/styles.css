@@ -246,8 +246,11 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 9rem;
-  width: 40%;
+  font-size: 10rem;
+  text-shadow: 3px 3px black;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
 }
 
 h2 {
@@ -259,15 +262,29 @@ h3 {
   font-size: 3rem;
 }
 
-li {
+li, ul, p, button {
   font-size: 2.5rem;
+  list-style: none;
+  padding: 0px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+p {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-shadow: 3px 3px black;
+  color: white;
+  text-align: center;
 }
 
 button {
   color: #fff;
+  text-shadow: 3px 3px black;
   text-transform: uppercase;
   text-decoration: none;
-  background: darkgreen;
+  background-color: #990033;
   padding: 20px;
   border-radius: 5px;
   display: inline-block;
@@ -277,7 +294,7 @@ button {
 }
 
 button:hover {
-  background: lightgreen;
+  background-color: #d0396b;
   letter-spacing: 1px;
   -webkit-box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
           box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
@@ -286,8 +303,60 @@ button:hover {
 }
 
 header {
-  background-color: #fff4db;
+  background: url(../assets/presents.jpg);
   height: 100vh;
+  background-size: cover;
+}
+
+input[type=text] {
+  width: 100%;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-bottom: 4px #990033 solid;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 40px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.names {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.names li {
+  text-align: center;
+  list-style-image: url(../assets/favicon.ico);
+}
+
+.namesEntered {
+  -webkit-column-count: 3;
+          column-count: 3;
 }
 
 .wrapper {
@@ -317,7 +386,17 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.secretSantaGetter {
+  border-left: #990033 4px solid;
+  padding-left: 10px;
+}
+
+.secretSantaGiver {
+  text-align: right;
+  padding-right: 10px;
 }

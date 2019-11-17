@@ -12,7 +12,8 @@
 .flexMe{
     display: flex; 
     justify-content: space-between; 
-    padding-top:50px;
+    padding-top:50px; 
+    
 } 
 .flexMe img{
     width:150px; 
@@ -20,5 +21,15 @@
 } 
 .santaFlex{
     display: flex; 
-    justify-content: space-between;
+    justify-content: center;
+} 
+
+.secretSantaGetter{
+    border-left: $redpink 4px solid;
+    padding-left: 10px;
+} 
+
+.secretSantaGiver{
+    text-align: right; 
+    padding-right: 10px;
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link href="./assets/favicon.ico" rel="icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Santa's Little Helper</title>
 </head>
@@ -15,48 +16,44 @@
 <body>
     <header>
         <div class="wrapper">
-            <Div class="flexMe">
-                <h1>
-                    Santa's Little Helper
-                </h1>
-                <img src="./assets/tux-161475_640.png" alt="penguin">
-            </div>
-            <p>
-                Enter your names below! Once you have submited every name you would like to be in gift draw hit "randomize" to see the results.  If you have added someone you wish to delete, click on the name to remove them!
-            </p>
 
+            <h1>
+                Santa's Little Helper
+            </h1>
+            <p>
+                Enter the names of all participants below. Then, just hit "Find Your Match" and let our elves make the
+                perfect pairings!
+            </p>
             <!-- first button to hit to submit each individual name -->
             <form action="submit" class="inputtedNames">
                 <input type="text" required="true">
-                <button type="submit">Send Name</button>
+                <button type="submit">Enter Name</button>
             </form>
 
-            <div>
-                <h2> Names in Draw so Far!</h2>
+            <div class="names">
+                <h2> Participants</h2>
                 <ul class="namesEntered">
                     <!-- this is where the names inputted will go -->
                 </ul>
-                <button id="randomize">Randomize</button>
+                <button id="randomize">find your match</button>
                 <!-- give class or ID -->
             </div>
         </div>
     </header>
-    <section class="wrapper">
-
-    </section>
+  
     <!-- second button to submit to scramble the names and assign a partner -->
     <section class="wrapper">
         <h2> Your Results!</h2>
         <div class="santaFlex">
             <div class="secretSantaGiver">
-                <h3> You are...</h3>
+                <h3> You are</h3>
                 <ul class="namesEnteredList">
                     <!-- this is where the names inputted array will go, used with the namesrandomized list it will be the legend as to who has who -->
                 </ul>
             </div>
 
             <div class="secretSantaGetter">
-                <h3>You have...</h3>
+                <h3>You have</h3>
                 <ul class="namesRandomized">
                     <!-- this is where names that have been scrambled will go -->
                 </ul>
@@ -75,27 +72,28 @@
     <script>
         // set up variables, arrays and name object 
         const santaApp = {}
-        santaApp.Array = []; 
-        santaApp.ArrayS = [] 
-    // this below function was adapted from a video I watched 4 times on youtube by Nate Brooks
-    // https://www.facebook.com/natebrooksmusic/ NO github, but support his music 
+        santaApp.Array = [];
+        santaApp.ArrayS = []
+        // this below function was adapted from a video I watched 4 times on youtube by Nate Brooks
+        // https://www.facebook.com/natebrooksmusic/ NO github, but support his music 
 
-        function randomize (){
-            santaApp.ArrayS =[]
-        for (let i=0; i<santaApp.Array.length; i++){
-            let randomIndex = -1; 
-            let attempts = 0;
-            while (randomIndex == -1 || randomIndex == i || santaApp.ArrayS.indexOf(santaApp.Array[randomIndex]) != -1){
-                randomIndex = Math.floor(Math.random() * santaApp.Array.length);
-                attempts ++;
-                if (attempts >= santaApp.Array.length){
-                    randomize();
-                    return;
+        function randomize() {
+            santaApp.ArrayS = []
+            for (let i = 0; i < santaApp.Array.length; i++) {
+                let randomIndex = -1;
+                let attempts = 0;
+                while (randomIndex == -1 || randomIndex == i || santaApp.ArrayS.indexOf(santaApp.Array[randomIndex]) !=
+                    -1) {
+                    randomIndex = Math.floor(Math.random() * santaApp.Array.length);
+                    attempts++;
+                    if (attempts >= santaApp.Array.length) {
+                        randomize();
+                        return;
+                    }
                 }
-            } 
-            santaApp.ArrayS.push(santaApp.Array[randomIndex]);
-            
-        }
+                santaApp.ArrayS.push(santaApp.Array[randomIndex]);
+
+            }
         }
 
         santaApp.init = function () {
@@ -104,27 +102,27 @@
                 const inputtedName = $('input').val();
                 if (inputtedName !== '') {
                     $('.namesEntered').append(`<li>${inputtedName}</li>`);
-                    $('input').val(''); 
+                    $('input').val('');
                 }
 
-                santaApp.Array.push(inputtedName); 
-                               
+                santaApp.Array.push(inputtedName);
+
             })
 
             $('#randomize').on('click', function () {
                 santaApp.Array.forEach((name) => {
                     $(".namesEnteredList").append(`<li>${name}</li>`);
-                }); 
+                });
                 randomize()
                 santaApp.ArrayS.forEach((name) => {
-                    $(".namesRandomized").append(`<li>${name}</li>`); 
+                    $(".namesRandomized").append(`<li>${name}</li>`);
 
                 });
 
-            })     
-           
-                // above is placeholder to see results pop up
-           
+            })
+
+            // above is placeholder to see results pop up
+
         };
         // ^this above bracket is for the entire init function 
 
