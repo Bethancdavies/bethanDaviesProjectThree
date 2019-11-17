@@ -239,7 +239,9 @@ html {
   font-size: 62.5%;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: 'Dancing Script', cursive;
   padding: 0;
   margin: 0;
@@ -253,20 +255,65 @@ h1 {
   padding-top: 20px;
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 8rem;
+  }
+}
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
 h2 {
   font-size: 5rem;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 375px) {
+  h2 {
+    font-size: 3rem;
+  }
 }
 
 h3 {
   font-size: 3rem;
 }
 
-li, ul, p, button {
+li,
+ul,
+p,
+button {
   font-size: 2.5rem;
   list-style: none;
   padding: 0px;
   font-family: 'Montserrat', sans-serif;
+}
+
+@media (max-width: 768px) {
+  li,
+  ul,
+  p,
+  button {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  li,
+  ul,
+  p,
+  button {
+    font-size: 1.6rem;
+  }
 }
 
 p {
@@ -274,14 +321,14 @@ p {
   margin: 0 auto;
   padding-bottom: 20px;
   padding-top: 20px;
-  text-shadow: 3px 3px black;
+  text-shadow: 2px 2px black;
   color: white;
   text-align: center;
 }
 
 button {
   color: #fff;
-  text-shadow: 3px 3px black;
+  text-shadow: 2px 2px black;
   text-transform: uppercase;
   text-decoration: none;
   margin-top: 20px;
@@ -319,7 +366,7 @@ header {
   background-size: cover;
 }
 
-input[type=text] {
+input[type="text"] {
   width: 100%;
   height: 60px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -363,14 +410,33 @@ form {
   margin-left: 120px;
 }
 
+@media (max-width: 375px) {
+  .names li {
+    margin-left: 30px;
+  }
+}
+
 .transparency {
   background-color: rgba(255, 255, 255, 0.5);
   border: 2px #990033 solid;
 }
 
+@media (max-width: 768px) {
+  .transparency {
+    height: 200px;
+  }
+}
+
 .namesEntered {
   -webkit-column-count: 3;
           column-count: 3;
+}
+
+@media (max-width: 375px) {
+  .namesEntered {
+    -webkit-column-count: 2;
+            column-count: 2;
+  }
 }
 
 .wrapper {

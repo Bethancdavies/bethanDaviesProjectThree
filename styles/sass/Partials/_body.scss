@@ -2,47 +2,51 @@
 
 .wrapper {
     margin-right: auto;
-    margin-left:  auto;
+    margin-left: auto;
     max-width: 960px;
     padding-right: 10px;
-    padding-left:  10px;
-  }
-
-
-.flexMe{
-    display: flex; 
-    justify-content: space-between; 
-    padding-top:50px; 
-    
-} 
-.flexMe img{
-    width:150px; 
-    height:150px;
-} 
-.santaFlex{
-    display: flex; 
-    justify-content: center;
-}  
-.flexTop{
-    display: flex; 
-    flex-direction:column; 
-    
+    padding-left: 10px;
 }
 
-.secretSantaGetter{
+
+.flexMe {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+
+}
+
+.flexMe img {
+    width: 150px;
+    height: 150px;
+}
+
+.santaFlex {
+    display: flex;
+    justify-content: center;
+}
+
+.flexTop {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.secretSantaGetter {
     border-left: $redpink 4px solid;
     padding-left: 10px;
-} 
+}
 
-.secretSantaGiver{
-    text-align: right; 
+.secretSantaGiver {
+    text-align: right;
     padding-right: 10px;
-} 
+}
 
-.secretSanta{
-    background: $turquoise; 
-    height:100vh;
-    h2{
+.secretSanta {
+    background: $turquoise;
+    height: 100vh;
+
+    h2 {
         padding: 80px 0px 30px 0px;
     }
 }

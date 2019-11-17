@@ -1,2 +1,13 @@
 // Mix-ins, use for media queries and groups you use often
 
+@mixin mobile {
+    @media (max-width:375px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width:768px) {
+        @content;
+    }
+}

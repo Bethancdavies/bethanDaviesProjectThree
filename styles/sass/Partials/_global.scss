@@ -1,70 +1,101 @@
 // font-family: 'Dancing Script', cursive; 
 // font styling for page
-html{
+html {
     font-size: 62.5%;
 }
 
 
-h1,h2, h3{
-    font-family:'Dancing Script', cursive;
+h1,
+h2,
+h3 {
+    font-family: 'Dancing Script', cursive;
     padding: 0;
     margin: 0;
-} 
-
-h1{
-    font-size: 10rem; 
-    text-shadow: 3px 3px black;
-    color:white;
-    text-align: center;
-    padding-top:20px;
-    
 }
 
-h2{
-    font-size:5rem; 
+h1 {
+    font-size: 10rem;
+    text-shadow: 3px 3px black;
+    color: white;
     text-align: center;
-} 
-h3{
+    padding-top: 20px;
+
+    @include tablet {
+        font-size: 8rem;
+    }
+
+    @include mobile {
+        font-size: 4rem;
+    }
+
+}
+
+h2 {
+    font-size: 5rem;
+    text-align: center;
+
+    @include tablet {
+        font-size: 4rem;
+    }
+
+    @include mobile {
+        font-size: 3rem;
+    }
+}
+
+h3 {
     font-size: 3rem;
 }
-li,ul, p, button{ 
-    font-size:2.5rem; 
-    list-style:none;
-    padding: 0px; 
-    font-family:'Montserrat', sans-serif;
-}    
 
-p{
-    width: 80%; 
-    margin: 0 auto; 
-    padding-bottom: 20px; 
-    padding-top:20px;
-    text-shadow: 3px 3px black;
-    color:white; 
+li,
+ul,
+p,
+button {
+    font-size: 2.5rem;
+    list-style: none;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+
+    @include tablet {
+        font-size: 2rem;
+    }
+
+    @include mobile {
+        font-size: 1.6rem;
+    }
+}
+
+p {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-shadow: 2px 2px black;
+    color: white;
     text-align: center;
- 
+
 }
 
 // button styling
-button{
+button {
     color: #fff;
-    text-shadow: 3px 3px black;
+    text-shadow: 2px 2px black;
     text-transform: uppercase;
-    text-decoration: none; 
-    margin-top:20px;
-    background-color:#990033; 
+    text-decoration: none;
+    margin-top: 20px;
+    background-color: #990033;
     padding: 20px;
     border-radius: 5px;
     display: inline-block;
     border: none;
-    transition: all 0.4s ease 0s; 
-    }
+    transition: all 0.4s ease 0s;
+}
 
-button:hover{   
-background-color:#d0396b;
-letter-spacing: 1px;
-box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-transition: all 0.4s ease 0s;
-} 
+button:hover {
+    background-color: #d0396b;
+    letter-spacing: 1px;
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+}
 
 // styling for buttons from https://www.fabriziovanmarciano.com/button-styles/ tweaked by permission of author
