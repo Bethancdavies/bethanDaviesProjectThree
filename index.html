@@ -9,7 +9,8 @@
     <link href="./assets/favicon.ico" rel="icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <script src="https://cdn.rawgit.com/scottschiller/Snowstorm/master/snowstorm-min.js"></script>
     <title>Santa's Little Helper</title>
 </head>
 
@@ -122,12 +123,22 @@
                 $('html,body').animate({
         scrollTop: $(".secretSanta").offset().top},
         'slow');
+        snowStorm.start();
+        // this is an imported js library, cited above
                 santaApp.ArrayS.forEach((name) => {
                     $(".namesRandomized").append(`<li>${name}</li>`);
 
                 });
 
-            })
+            }) 
+            $('ul').on('click', 'li', function(e){  
+                console.log(e)
+  $(this).remove(); 
+  santaApp.Array
+//   how do you remove a specific item on click from an array :) 
+  
+
+})
 
             // above is placeholder to see results pop up
 
