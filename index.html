@@ -30,11 +30,13 @@
                 <button type="submit">Enter Name</button>
             </form>
 
-            <div class="names">
+            <div class="names"> 
+                <div class="transparency"> 
                 <h2> Participants</h2>
                 <ul class="namesEntered">
                     <!-- this is where the names inputted will go -->
                 </ul>
+            </div>
                 <button id="randomize">find your match</button>
                 <!-- give class or ID -->
             </div>
@@ -42,7 +44,8 @@
     </header>
   
     <!-- second button to submit to scramble the names and assign a partner -->
-    <section class="wrapper">
+    <section class="secretSanta"> 
+        <div class="wrapper"> 
         <h2> Your Results!</h2>
         <div class="santaFlex">
             <div class="secretSantaGiver">
@@ -59,6 +62,7 @@
                 </ul>
             </div>
         </div>
+    </div>
     </section>
     <footer>
         made by Bethan Davies
@@ -69,7 +73,8 @@
         integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
     <script src="http://d3js.org/d3.v5.min.js"></script>
 
-    <script>
+    <script> 
+   
         // set up variables, arrays and name object 
         const santaApp = {}
         santaApp.Array = [];
@@ -114,6 +119,9 @@
                     $(".namesEnteredList").append(`<li>${name}</li>`);
                 });
                 randomize()
+                $('html,body').animate({
+        scrollTop: $(".secretSanta").offset().top},
+        'slow');
                 santaApp.ArrayS.forEach((name) => {
                     $(".namesRandomized").append(`<li>${name}</li>`);
 

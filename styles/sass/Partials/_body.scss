@@ -32,4 +32,11 @@
 .secretSantaGiver{
     text-align: right; 
     padding-right: 10px;
+} 
+
+.secretSanta{
+    background: $turquoise; 
+    h2{
+        padding: 30px 0;
+    }
 }
