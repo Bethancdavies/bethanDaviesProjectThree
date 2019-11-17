@@ -22,23 +22,21 @@
                 <img src="./assets/tux-161475_640.png" alt="penguin">
             </div>
             <p>
-                Enter every name of member participating Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam
-                minima quos expedita autem, voluptatibus repudiandae cupiditate error beatae saepe dignissimos adipisci
-                exercitationem cumque dolore aliquam voluptatem suscipit perspiciatis optio! Placeat?
+                Enter your names below! Once you have submited every name you would like to be in gift draw hit "randomize" to see the results.  If you have added someone you wish to delete, click on the name to remove them!
             </p>
 
             <!-- first button to hit to submit each individual name -->
             <form action="submit" class="inputtedNames">
                 <input type="text" required="true">
-                <button type="submit">Submit Individual Name</button>
+                <button type="submit">Send Name</button>
             </form>
 
             <div>
-                <h2> Names you have entered</h2>
+                <h2> Names in Draw so Far!</h2>
                 <ul class="namesEntered">
                     <!-- this is where the names inputted will go -->
                 </ul>
-                <button id="randomize">Submit Form</button>
+                <button id="randomize">Randomize</button>
                 <!-- give class or ID -->
             </div>
         </div>
@@ -48,17 +46,17 @@
     </section>
     <!-- second button to submit to scramble the names and assign a partner -->
     <section class="wrapper">
-        <h2> Secret Santa Results.....</h2>
+        <h2> Your Results!</h2>
         <div class="santaFlex">
             <div class="secretSantaGiver">
-                <h3> secret santa giver</h3>
+                <h3> You are...</h3>
                 <ul class="namesEnteredList">
                     <!-- this is where the names inputted array will go, used with the namesrandomized list it will be the legend as to who has who -->
                 </ul>
             </div>
 
             <div class="secretSantaGetter">
-                <h3>secret santa getter</h3>
+                <h3>You have...</h3>
                 <ul class="namesRandomized">
                     <!-- this is where names that have been scrambled will go -->
                 </ul>
@@ -72,44 +70,63 @@
 
     <script src='https://code.jquery.com/jquery-3.4.0.min.js'
         integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+    <script src="http://d3js.org/d3.v5.min.js"></script>
 
     <script>
         // set up variables, arrays and name object 
         const santaApp = {}
-        santaApp.inputtedNameArray = [];
-        santaApp.inputtedNameArrayS = [];
-        // santaApp.randomNames = []; dunno if need this?
+        santaApp.Array = []; 
+        santaApp.ArrayS = [] 
+    // this below function was adapted from a video I watched 4 times on youtube by Nate Brooks
+    // https://www.facebook.com/natebrooksmusic/ NO github, but support his music 
+
+        function randomize (){
+            santaApp.ArrayS =[]
+        for (let i=0; i<santaApp.Array.length; i++){
+            let randomIndex = -1; 
+            let attempts = 0;
+            while (randomIndex == -1 || randomIndex == i || santaApp.ArrayS.indexOf(santaApp.Array[randomIndex]) != -1){
+                randomIndex = Math.floor(Math.random() * santaApp.Array.length);
+                attempts ++;
+                if (attempts >= santaApp.Array.length){
+                    randomize();
+                    return;
+                }
+            } 
+            santaApp.ArrayS.push(santaApp.Array[randomIndex]);
+            
+        }
+        }
+
         santaApp.init = function () {
             $('.inputtedNames').on('submit', function (event) {
                 event.preventDefault();
                 const inputtedName = $('input').val();
                 if (inputtedName !== '') {
                     $('.namesEntered').append(`<li>${inputtedName}</li>`);
-                    $('input').val('');
+                    $('input').val(''); 
                 }
-                santaApp.inputtedNameArray.push(inputtedName)
-            }) 
+
+                santaApp.Array.push(inputtedName); 
+                               
+            })
+
             $('#randomize').on('click', function () {
-                santaApp.inputtedNameArray.forEach((name) => {
+                santaApp.Array.forEach((name) => {
                     $(".namesEnteredList").append(`<li>${name}</li>`);
                 }); 
-            
-            })   
+                randomize()
+                santaApp.ArrayS.forEach((name) => {
+                    $(".namesRandomized").append(`<li>${name}</li>`); 
 
-          
-// then have shuffled here :) 
-    
+                });
+
+            })     
            
-     $('#randomize').on('click', function () { 
-                santaApp.inputtedNameArrayS.forEach((name) => {
-                    $(".namesRandomized").append(`<li>${name}</li>`);
-                    // this will submit the names given as li's below
-                });  
-            })   
-
-
-        }; 
-// ^this above bracket is for the entire init function 
+                // above is placeholder to see results pop up
+           
+        };
+        // ^this above bracket is for the entire init function 
 
         // keep everything above this point :)
         // call init function
@@ -117,7 +134,7 @@
             santaApp.init()
 
 
-        });  
+        });
         // these brackets end initfunction
     </script>
 </body>

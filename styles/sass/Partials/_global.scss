@@ -11,11 +11,13 @@ h1,h2, h3{
 } 
 
 h1{
-    font-size: 9rem;
+    font-size: 9rem; 
+    width:40%;
 }
 
 h2{
-    font-size:5rem;
+    font-size:5rem; 
+    text-align: center;
 } 
 h3{
     font-size: 3rem;
@@ -28,7 +30,7 @@ button{
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
-    background: #ed3330;
+    background:darkgreen;
     padding: 20px;
     border-radius: 5px;
     display: inline-block;

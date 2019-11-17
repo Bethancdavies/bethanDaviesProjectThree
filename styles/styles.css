@@ -247,10 +247,12 @@ h1, h2, h3 {
 
 h1 {
   font-size: 9rem;
+  width: 40%;
 }
 
 h2 {
   font-size: 5rem;
+  text-align: center;
 }
 
 h3 {
@@ -265,7 +267,7 @@ button {
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
-  background: #ed3330;
+  background: darkgreen;
   padding: 20px;
   border-radius: 5px;
   display: inline-block;
@@ -284,7 +286,7 @@ button:hover {
 }
 
 header {
-  background-color: lightgreen;
+  background-color: #fff4db;
   height: 100vh;
 }
 
