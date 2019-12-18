@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <script src="https://cdn.rawgit.com/scottschiller/Snowstorm/master/snowstorm-min.js"></script>
     <title>Santa's Little Helper</title>
 </head>
 
@@ -38,7 +37,6 @@
                     </ul>
                 </div>
                 <button id="randomize">find your match</button>
-                <!-- give class or ID -->
             </div>
         </div>
     </header>
@@ -51,14 +49,14 @@
                 <div class="secretSantaGiver">
                     <h3>You are</h3>
                     <ul class="namesEnteredList">
-                        <!-- this is where the names inputted array will go, used with the namesrandomized list it will be the legend as to who has who -->
+                        <!-- names inputted array populate here, used with the namesrandomized list it will be the legend as to who has who -->
                     </ul>
                 </div>
 
                 <div class="secretSantaGetter">
                     <h3>You have</h3>
                     <ul class="namesRandomized">
-                        <!-- this is where names that have been scrambled will go -->
+                        <!-- Randomized names populate here-->
                     </ul>
                 </div>
             </div>
@@ -67,93 +65,13 @@
     <footer>
         <p>Made by Bethan Davies</p>
     </footer>
-
+    <!-- script imports -->
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/scottschiller/Snowstorm/master/snowstorm-min.js"></script>
     <script src="http://d3js.org/d3.v5.min.js"></script>
+    <script src="scripts.js"></script>
 
-    <script>
-        // set up variables, arrays and name object
-        const santaApp = {};
-        santaApp.Array = [];
-        santaApp.ArrayS = [];
-        // this below function was adapted from a video I watched 4 times on youtube by Nate Brooks
-        // https://www.facebook.com/natebrooksmusic/ NO github, but support his music
-
-        function randomize() {
-            santaApp.ArrayS = [];
-            for (let i = 0; i < santaApp.Array.length; i++) {
-                let randomIndex = -1;
-                let attempts = 0;
-                while (
-                    randomIndex == -1 ||
-                    randomIndex == i ||
-                    santaApp.ArrayS.indexOf(santaApp.Array[randomIndex]) != -1
-                ) {
-                    randomIndex = Math.floor(Math.random() * santaApp.Array.length);
-                    attempts++;
-                    if (attempts >= santaApp.Array.length) {
-                        randomize();
-                        return;
-                    }
-                }
-                santaApp.ArrayS.push(santaApp.Array[randomIndex]);
-            }
-        }
-
-        santaApp.init = function () {
-            $(".inputtedNames").on("submit", function (event) {
-                event.preventDefault();
-                const inputtedName = $("input").val();
-                if (inputtedName !== "") {
-                    $(".namesEntered").empty();
-                    santaApp.Array.push(inputtedName);
-                    console.log(santaApp.Array);
-                    santaApp.Array.forEach(function (element, index) {
-                        $(".namesEntered").append(`<li id=${index}>${element}</li>`);
-                    });
-
-                    $("input").val("");
-                }
-            });
-
-            $("#randomize").on("click", function () {
-                santaApp.Array.forEach(name => {
-                    $(".namesEnteredList").append(`<li>${name}</li>`);
-                });
-                randomize();
-                $("html,body").animate({
-                        scrollTop: $(".secretSanta").offset().top
-                    },
-                    "slow"
-                );
-                snowStorm.start();
-                // this is an imported js library, cited above
-                santaApp.ArrayS.forEach(name => {
-                    $(".namesRandomized").append(`<li>${name}</li>`);
-                });
-            });
-            $("ul").on("click", "li", function (e) {
-                santaApp.Array.splice(e.target.id, 1);
-                $(".namesEntered").empty();
-
-                santaApp.Array.forEach(function (element, index) {
-                    $(".namesEntered").append(`<li id=${index}>${element}</li>`);
-                });
-
-            });
-
-            // above is placeholder to see results pop up
-        };
-        // ^this above bracket is for the entire init function
-
-        // keep everything above this point :)
-        // call init function
-        $(document).ready(function () {
-            santaApp.init();
-        });
-        // these brackets end initfunction
-    </script>
 </body>
 
 </html>
